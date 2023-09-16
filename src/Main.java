@@ -1,17 +1,27 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.*;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException  {
 
-        BufferedReader read = new BufferedReader(new FileReader("d:/1/file.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("file.txt"));
+
+        String line1 = "name age\n";
+        String line2 = "alice 21\n";
+        String line3 = "ryan 30\n";
+
+        writer.write(line1);
+        writer.write(line2);
+        writer.write(line3);
+        writer.close();
+
+        BufferedReader read = new BufferedReader(new FileReader("file.txt"));
 
         String c;
 
-        BufferedWriter write = new BufferedWriter(new FileWriter("d:/1/user.json"));
+        BufferedWriter write = new BufferedWriter(new FileWriter("user.json"));
         write.write("[\n");
 
         boolean flag = false;
